@@ -4,7 +4,8 @@ int main()
 
     // Variaveis do sistema
     int seletorMenu;
-    int seletorBatalha;
+    int seletorBatalha1, seletorBatalha2;
+    int whilePass = 0;
     // Vari�veis para a Carta 1
     char estado1;
     char codigoCarta1[4];
@@ -111,10 +112,164 @@ int main()
         printf("\nIniciando batalha de cartas...\n");
 
         printf("1 - Populacao\n2 - Area(Km2)\n3 - PIB\n4 - N pontos turisticos\n5 - Densidade populacional(hab/Km2)\n6 - PIB per Capita\n7 - Super poder\n");
-        printf("Selecione o atributo que sera disputado: \n");
-        scanf("%d", &seletorBatalha);
+        printf("Selecione o primeiro atributo que sera disputado: \n");
+        scanf("%d", &seletorBatalha1);
 
-        switch (seletorBatalha)
+        while (whilePass == 0)
+        {
+            printf("1 - Populacao\n2 - Area(Km2)\n3 - PIB\n4 - N pontos turisticos\n5 - Densidade populacional(hab/Km2)\n6 - PIB per Capita\n7 - Super poder\n");
+            printf("Selecione o segundo atributo que sera disputado: \n");
+            scanf("%d", &seletorBatalha2);
+
+            whilePass = (seletorBatalha1 == seletorBatalha2) ? 0 : 1;
+
+            printf("Atributo ja escolhido, selecione outro\n");
+        }
+
+        switch (seletorBatalha1)
+        {
+        case 1:
+            printf("Atributo escolhido: Populacao\n");
+            if (populacaoCidade1 > populacaoCidade2)
+            {
+                printf("Populacao: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (populacaoCidade1 < populacaoCidade2)
+            {
+                printf("Populacao: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Populacao: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        case 2:
+
+            printf("Atributo escolhido: Area(Km2)\n");
+            if (areaCidade1 > areaCidade2)
+            {
+                printf("Area: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (areaCidade1 < areaCidade2)
+            {
+                printf("Area: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Area: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        case 3:
+
+            printf("Atributo escolhido: Pontos turisticos\n");
+            if (turismoCidade1 > turismoCidade2)
+            {
+                printf("Pontos turisticos: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (turismoCidade1 < turismoCidade2)
+            {
+                printf("Pontos turisticos: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Pontos turisticos: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        case 4:
+
+            printf("Atributo escolhido: PIB\n");
+            if (pibCidade1 > pibCidade2)
+            {
+                printf("PIB: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (pibCidade1 < pibCidade2)
+            {
+                printf("PIB: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("PIB: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        case 5:
+
+            printf("Atributo escolhido: PIB per Capita\n");
+            if (pibPerCapita1 > pibPerCapita2)
+            {
+                printf("Pib per Capita: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (pibPerCapita1 < pibPerCapita2)
+            {
+                printf("Pib per Capita: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Pib per Capita: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        case 6:
+
+            printf("Atributo escolhido: Densidade populacional\n");
+            if (densidadePopulacional1 < densidadePopulacional2)
+            {
+                printf("Densidade populacional: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (densidadePopulacional1 > densidadePopulacional2)
+            {
+                printf("Densidade populacional: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Densidade Populacional: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+
+        case 7:
+
+            printf("Atributo escolhido: Super Poder\n");
+            if (superPoder1 > superPoder2)
+            {
+                printf("Super Poderes: Carta 1 venceu!\n");
+                pontosCarta1 += 1;
+            }
+            else if (superPoder1 < superPoder2)
+            {
+                printf("Super Poderes: Carta 2 venceu!\n");
+                pontosCarta2 += 1;
+            }
+            else
+            {
+                printf("Super Poderes: Empate!\n");
+                pontosCarta1 += 1;
+                pontosCarta2 += 1;
+            }
+            break;
+        };
+        switch (seletorBatalha2)
         {
         case 1:
             printf("Atributo escolhido: Populacao\n");
@@ -259,18 +414,9 @@ int main()
         };
         printf("\nFim da batalha\n");
 
-        if (pontosCarta1 > pontosCarta2)
-        {
-            printf("A carta 1 e a vencedora!\n");
-        }
-        else if (pontosCarta1 < pontosCarta2)
-        {
-            printf("A carta 2 e a vencedora!\n");
-        }
-        else
-        {
-            printf("As duas cartas empataram!\n");
-        }
+        (pontosCarta1 > pontosCarta2) ? printf("A carta 1 e a vencedora!\n") : (pontosCarta1 < pontosCarta2) ? printf("A Carta 2 e a vencedora!\n")
+                                                                                                             : printf("Ocorreu um empate!");
+
         break;
     case 2:
         printf("Creditos\nJogo desenvolvido por: Jorge Pinetti\nGithub: https://github.com/JorgePinetti");
